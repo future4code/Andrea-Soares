@@ -160,11 +160,9 @@ input:focus, textarea:focus {
 /*paginas dos dois projetos projetos*/
 .projetos{
     margin: 0 auto;
-    margin-top: 50px;
-    padding: 2em;
+    padding: 1em;
     width: 90%;
-    text-align: center;
-    
+    text-align: center;  
 }
 .icone-projeto{
     width: 10%;
@@ -187,7 +185,6 @@ input:focus, textarea:focus {
     margin:0 auto;
     width: 20%;
     justify-content: center;
-    
 }
 
 
