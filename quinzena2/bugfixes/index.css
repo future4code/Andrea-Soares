@@ -34,6 +34,7 @@ div>p:first-child {
     padding-top: 100px;
     width: 190px;
     margin: 0 auto;
+    
 }
 
 div img {
@@ -102,6 +103,7 @@ div:last-child {
 
 table {
     width: 60%;
+    text-align: center;
 }
 
 td button {
