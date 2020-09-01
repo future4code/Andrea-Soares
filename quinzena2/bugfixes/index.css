@@ -37,7 +37,7 @@ img {
 div>p:first-child {
     display:block;
     padding-top: 100px;
-    width: 190px;
+    width: 200px;
     margin: 0 auto;
     
 }
@@ -67,6 +67,13 @@ div img {
 .icone {
     height: 15px;
     width: 15px;
+    opacity: 1;
+}
+.icone:hover{
+    opacity: 0.5;
+}
+.icone:active{
+    opacity: 1;
 }
 
 
@@ -83,6 +90,7 @@ div img {
 
 #container-de-descricao>ol {
     padding: 15px 0px;
+    list-style-position: inside;
 }
 
 #container-para-comprar {
@@ -93,6 +101,7 @@ div img {
     color: #c44f00;
     padding: 100px 0;
     font-size: 60px;
+    width: 550px;
 }
 
 
