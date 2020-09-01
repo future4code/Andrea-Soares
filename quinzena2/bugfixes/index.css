@@ -30,7 +30,8 @@ img {
 }
 
 div>p:first-child {
-    display: block;
+    display:block;
+    padding-top: 100px;
 }
 
 div img {
