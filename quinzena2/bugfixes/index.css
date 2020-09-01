@@ -26,7 +26,7 @@ button:focus {
 }
 
 img {
-    width: 100px;
+    width: 50px;
 }
 
 div>p:first-child {
@@ -38,7 +38,7 @@ div>p:first-child {
 }
 
 div img {
-    background: black;
+    
 }
 
 .botao-amarelo {
@@ -118,7 +118,6 @@ td button {
     margin-top: 20px;
     height: 100px;
 }
-
 
 #back-button {
     background-color: white;
