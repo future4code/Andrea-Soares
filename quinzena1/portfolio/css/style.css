@@ -1,0 +1,190 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+body{
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+header{
+    width: 100%;
+    position: fixed;
+    background-color:#A6DAE8;
+    height: 3em;
+}
+nav{
+    display: flex;
+    width: 100%;
+    justify-content: center; 
+}
+nav ul{
+    margin: 1em; 
+}
+nav li{
+    display: inline-block;
+    margin-right: 2em;
+}
+nav a{
+    color: black;
+}
+.dropdown{
+    display: inline-block;
+}
+.dropdown-conteudo{
+  display: none;
+  position: absolute;
+  background-color: #89AECC;
+}
+.dropdown-conteudo a {
+    text-transform: uppercase;
+    padding: 1em;
+    color: white;
+}
+.dropdown:hover .dropdown-conteudo {
+    display: block;
+}
+section{
+    padding-top: 5em;
+    background-color: #d9ebf1;
+    width: 100%;
+}
+.img-principal{
+    box-shadow: 10px 10px 10px #064455;
+    display: flex;
+    width: 40%;
+    margin: 0 auto;
+}
+.sobremim{
+    padding-top: 1em;
+    font-size: 1.5em;
+    display: flex;
+    text-align: center;
+    margin: 0 auto;
+    width: 75%;
+}
+.meus-feitos{
+    display: flex;
+    width: 90%;
+    justify-content: center;
+    margin: 0 auto; 
+}
+.feito{
+    border: 1px solid rgb(202, 201, 201);
+    width: 30%;
+    margin: 1.5em;
+    padding:0.5em;
+    border-radius: 1em;
+}
+.icone{
+    width: 20%;
+    margin: 0 auto;
+    display: flex;
+}
+.item{
+    margin-top: 1em;
+    padding: 0.2em;
+}
+.meus-projetos{
+    border: 1px solid rgb(202, 201, 201);
+    width: 30%;
+    margin-top: 2em;
+    margin-right: 0.5em;
+    padding:0.5em;
+    border-radius: 1em;
+}
+.btn {
+    display: flex;
+    background: #A6DAE8;
+    border-radius: 0.5em; 
+    padding: 0.5em; 
+    color: rgb(8, 8, 8);
+    font-size: 18px; 
+    margin:20px auto;
+    width: 60%;
+    text-align: center;
+    justify-content: center;
+}
+footer {
+    width: 100%;
+    background: #A6DAE8;
+    padding: 1em;   
+}
+.contato{
+    width: 100%;
+    text-align: center;
+}
+input{
+    border-radius: 5px;
+    height: 30px;
+    margin: 5px;
+    width: 350px;
+}
+input:focus, textarea:focus {
+    background-color:#d9ebf1;
+}
+#msg{
+    width: 350px;
+    height: 100px;
+    vertical-align: top;
+}
+.btn-form{
+    height: 30px;
+    width: 100px;
+    border-radius: 5px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+.midia-social {
+    width: 20%;
+    text-align: center; 
+    margin: 0 auto;   
+ }
+ .icone-contato{
+     width: 15%;
+     padding-top: 1em;
+ }
+ footer li{
+     display: inline;
+     padding-right: 0.5em;
+ }
+
+
+/*paginas dos dois projetos projetos*/
+.projetos{
+    margin: 0 auto;
+    padding: 1em;
+    width: 90%;
+    text-align: center;  
+}
+.icone-projeto{
+    width: 10%;
+}
+.descricao-projeto{
+    margin: 2em;
+    font-size: 1.5em;
+    text-align: center;
+}
+.img-projeto{
+    width: 60%;
+}
+.btn-projetos{
+    display: flex;
+    background: #A6DAE8;
+    border-radius: 0.5em; 
+    padding: 1em; 
+    color: rgb(8, 8, 8);
+    font-size: 1em; 
+    margin:0 auto;
+    width: 20%;
+    justify-content: center;
+}
+
+
