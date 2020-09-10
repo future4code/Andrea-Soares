@@ -1,0 +1,94 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+div {
+    border: 1px solid rgb(196, 187, 187);
+}
+
+#first-block {
+    background-color: red;
+    height: 10vh;
+}
+.primeiro-bloco{
+    display: flex;
+    flex-wrap: wrap; 
+    width: 100vw;
+}
+.blue-block {
+    background-color: blue;
+    height: 10vh;
+    width: 31%;
+    flex-grow: 1;
+}
+
+.yellow-block {
+    background-color: yellow;
+    height: 10vh;
+    width: 31%;
+    flex-grow: 1;
+}
+
+.green-block {
+    background-color: green;
+    height: 10vh;
+    width: 31%;
+    flex-grow: 1;
+}
+.segundo-bloco{
+    display: flex;
+}
+.black-block {
+    background-color: black;
+    color: white;
+    height: 20vh;
+    flex-grow: 1;
+}
+.terceiro-bloco{
+    display: flex;
+}
+.white-block {
+    background-color: white;
+    height: 10vh;
+    width: 31vw;
+    flex-grow: 1;
+}
+
+/* responsivo usando media query*/
+@media  (min-width:420px) and (max-width:600px){
+    .green-block {
+        width: 100%;
+    }
+    .black-block{
+        height: 30vh;
+    }
+    .terceiro-bloco{
+        flex-wrap: wrap;
+    }
+    .white-block:last-child{
+        width: 100%;
+    }
+}
+
+@media (min-width:200px) and (max-width:419px){
+    .primeiro-bloco{
+        flex-direction: column;
+    }
+    .blue-block, .green-block, .yellow-block{
+        width: 100vw;
+    }
+    .segundo-bloco{
+        flex-direction:column;
+        height: 20vh;
+    }
+    .terceiro-bloco{
+        flex-direction: column;
+    }
+    .white-block{
+        width: 100vw;
+    }
+}
