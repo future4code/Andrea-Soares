@@ -1,0 +1,334 @@
+/* reset do css */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Nunito', sans-serif;
+    background-color: #F2F2F2;
+    font-size: 20px;
+}
+a{
+    text-decoration: none;
+    color:white;
+}
+
+/* Fazer os itens clicaveis mudarem de cor e aumentar o tamnho */
+a:hover{
+    color: rgb(140, 163, 196);
+    font-size: 1.5em;
+    font-weight: bold;
+    transition: 0.6s color;
+}
+
+li{
+    list-style:none;
+}
+main{
+    width: 100vw;
+}
+footer{
+    min-width: 100vw;
+}
+
+/* barra de navegação */
+ .menu-responsivo{
+    display: none;
+    color: black;
+}
+.nav-bar{
+    position: fixed;
+    display: flex;
+    height: 12vh;
+    min-height: 100px;
+    width: 100%;
+}
+.logo{
+    height: 12vh;
+    min-height: 100px;
+}
+#home{
+    display: flex;   
+    background: linear-gradient(to right, #C23949, #c4485f); 
+    width: 100%;
+    height: 100%;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: -1em;
+}
+ul.menu{
+    display: flex; 
+    justify-content: space-around;
+    width: 70%;
+}
+ul.menu-direita{
+    display: flex;
+    min-width: 30%;
+    justify-content: space-evenly;      
+}
+ul li{
+    color: white;
+    display: flex;
+    justify-content: center;
+    font-size: 0.8rem;
+}
+
+
+/* conteúdo sobre nós */
+
+.sobre-nos{
+    background-image: url(../img/foto-doca\ \(2\).jpg);
+    width: 100%;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.sobre-nos div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    min-width: 100vw;
+    background-color: rgba(7, 7, 7, 0.25);
+}
+.container-principal h1{
+    color: white;
+    font-family: 'Varela Round', sans-serif;
+}
+.container-principal > p{
+    text-align: center;
+    margin: 2em 0;
+    color: white;
+    font-size: 24px;
+    font-family: 'Varela Round', sans-serif;
+    width:75% ;
+}
+.btn-log4you{    
+    padding: 0 2%;
+    min-height: 10vh;
+    background-color: rgb(43, 14, 14);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 24px;
+    font-family: 'Varela Round', sans-serif;
+}
+.btn-log4you:hover{
+    background-color:#BF3952;
+}
+
+
+/*seção de rastreio */
+
+.rastreio{
+    min-height: 50vh;
+    min-width: 100vw;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+}
+.rastreio > img{
+    width: 40%;
+}
+.campo-rastreio{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50vw;
+}
+.rastreio h2{
+    font-size: larger;
+    padding-bottom: 1em;
+}
+.rastreio input{
+    font-size: 0.6em; 
+    text-align: center;
+    min-width: 25vw;
+    min-height: 5vh;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px; 
+    border: 2px solid #e4d0d0; 
+}
+::-webkit-input-placeholder{
+    color: #D9A3AC;
+    text-align: center;
+}
+.rastreio button{
+    min-height: 5vh;
+    min-width: 12vh;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+    background-color: #D9A3AC;
+    margin-left: -6px;
+    border: 2px solid black; 
+    font-size: 0.6em;  
+}
+
+
+/* serviços */
+
+.nossos-serviços{
+    display: flex;
+    justify-content: space-around;
+    background-color: #f1e1e5;
+}
+.card-servico{
+    display: flex;
+    flex-direction: column;
+    min-height: 60vh;
+    min-width: 30vw;
+    border: 1px solid #D9A3AC;   
+    border-radius: 0.5em;
+    margin: 1em 0;
+    align-items: center;
+    justify-content: center;
+    background-color: #e4d0d0;
+}
+.img-card{
+    width: 35%;
+}
+.btn-servico{
+    min-width: 35%;
+    margin-top: 3%;
+    padding: 0.5em;
+    background-color: #D9A3AC;
+    color: white;
+    border: none;
+    border-radius: 1em;
+    font-size: 1em;
+}
+
+
+  /* footer */
+
+#footer{
+    display: flex;
+    flex-direction: column-reverse;
+    background-color: #C23949;
+    align-items: flex-end;
+    min-height: 20vh;
+}
+.parag-footer{
+    display: flex;
+    flex-direction: column;
+    min-width: 100vw;
+    align-items: center;
+    margin-bottom: 1em;
+    font-size: 12px;
+    height: 7vh;
+}
+.redes-sociais{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-top: 1em;
+    width: 25%;
+    height: 20vh;
+    position: absolute;
+}
+.redes-sociais > p{
+    font-size: 16px;
+    width: 100%;
+    display: flex;
+    padding: 0.3em;
+    justify-content: center;
+}
+.redes-sociais-img{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    min-height: 5vh;
+}
+footer img {
+    height: 5vh;
+}
+.mapa{
+    display: flex;
+    width:100%;
+    position: absolute;
+    min-height: 20vh;
+    padding:1.3em;
+}
+.mapa ul{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+/* RESPONSIVO */
+
+/* Até 600px */
+
+@media (max-width: 600px){
+    ul.menu{
+        display: none;
+    }
+    .menu-direita{
+        flex-direction: column; 
+    }
+    ul li{
+        width: 30vw;
+        margin-right: 1em;
+    }
+    #home{
+        justify-content: flex-end;
+    }
+    .menu-direita li{
+        padding: 3%;
+    }
+    .menu-direita > li:last-child{
+        background-color: #e27083;
+        border-radius: 5px;
+    }
+    .nossos-serviços{
+        flex-direction: column;
+    }
+    .card-servico{
+        min-height: 40vh;
+        padding: 1em 0;
+    }
+    .img-card{
+        width: 60%;
+    }
+    .btn-log4you, .btn-servico{
+        font-size: 0.5em;
+    }
+    .container-principal > p{
+        font-size: 1em;
+    }
+    .rastreio > img{
+        display: none;
+    }
+    .rastreio input{
+        min-width: 50vw;
+    }
+    .campo-rastreio{
+        width: 100vw;
+    }
+    #footer{
+        align-items: center;
+        min-height: 30vh;
+    }
+    .redes-sociais{
+       width:40%;
+    }
+    footer img {
+        height: 3vh;
+    }
+    .mapa{
+        position: relative;
+        justify-content: center;
+        padding: 0;   
+    }
+    .mapa ul{
+        align-items: center;
+        padding-top: 0.5em;
+    }
+    }
+    
