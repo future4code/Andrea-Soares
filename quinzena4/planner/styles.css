@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1%;
+}
+
+body{
+    background-image: url("./background-unsplash.jpg");
+}
+section {
+    display: flex;
+    justify-content: space-evenly;
+    height: 80vh;
+    background-color:#96CBD6 ;
+}
+button{
+    background-color: #94E3C4;
+    height: 30px;
+    width: 100px;
+    margin-left: 5px;
+    border-radius: 5px;
+}
+select{
+    height: 30px;
+}
+input{
+    height: 30px;
+}
+.semana {
+    border: 1px dotted rgb(53, 53, 53);
+    width: 14%;
+    padding: 5px;
+    display: flex;
+    
+}
+
