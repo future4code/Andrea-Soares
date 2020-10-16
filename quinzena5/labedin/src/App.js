@@ -3,9 +3,8 @@ import './App.css';
 import CardGrande from './components/CardGrande/CardGrande';
 import CardPequeno from './components/CardPequeno/CardPequeno';
 import ImagemButton from './components/ImagemButton/ImagemButton';
+import CardFormacao from './components/CardFormacao/CardFormacao'
 import Imagem from './image/image0.jpeg';
-import { FaMapMarkerAlt } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
 
 
 function App() {
@@ -25,17 +24,30 @@ function App() {
           texto="Ver mais"
         />
       </div>
-      
+
       <div className="page-section-container">
       <CardPequeno 
         image= "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSTlHeCwlyLc7hgZdHsEhEarUYrOIOGIDETqw&usqp=CAU" 
         infos= "asoaresdev@gmail.com"
+      />
+      <CardPequeno 
+        image= "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRQ36A3Iuu-tF7rldTE-ss4IVnJiJzMd9T8-w&usqp=CAU" 
+        infos= "https://github.com/Asoaresdev"
       />
 
       <CardPequeno 
         image= "https://i.pinimg.com/736x/ba/67/c4/ba67c44d437af206e48a7f9f8048b870.jpg"
         infos= "Av. Bananinha"
       />
+      </div>
+
+      <div className="page-section-container">
+        <h2>Formação</h2>
+        <CardFormacao 
+          image= "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTeJA3YrqkJzNIIfzxDkT9zW32htH19SOaLTA&usqp=CAU"
+          curso="Labenu"
+          formacao="Front-end com React"
+        />
       </div>
 
       <div className="page-section-container">

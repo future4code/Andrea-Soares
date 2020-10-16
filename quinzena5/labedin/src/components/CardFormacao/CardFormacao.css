@@ -1,4 +1,4 @@
-.smallcard-container {
+.card-formation-container {
     display: flex;
     align-items: center;
     border: 1px solid black;
@@ -7,12 +7,14 @@
     height: 120px;
 }
 
-.smallcard-container > img {
-    width: 50px;
+.card-formation-container > img {
+    width: 60px;
     margin-right: 10px;
 }
-
-.smallcard-container > div {
+.card-formation-container  h4 {
+    margin-bottom: 15px;
+}
+.card-formation-container > div {
     display: flex;
     flex-direction: column;
     justify-items: flex-start;
