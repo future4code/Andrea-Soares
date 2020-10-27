@@ -1,28 +1,28 @@
 import React from "react";
+import PerguntasAbertas from "./PerguntasAbertas";
 
 export default class Passo1 extends React.Component {
     render(){
     return (
         <div>
         <h1>ETAPA 1 - DADOS GERAIS</h1>
-        <p>1. Qual o seu nome?</p>
+        <PerguntasAbertas pergunta = {"1. Quald o seu nome?"} />
         <input  />
 
-        <p>2. Qual a sua idade?</p>
+        <PerguntasAbertas pergunta = {"2. Qual a sua idade?"} />
         <input  />
 
-        <p>3. Qual seu email?</p>
+        <PerguntasAbertas pergunta={"3. Qual seu email?"} />
         <input  />
 
-        <p>4.Qual a sua escolaridade</p>
+        <PerguntasAbertas pergunta={"4.Qual a sua escolaridade"} />
         <select name="escolaridade" id="escolaridade">
-            <option value="medioIncompleto">Ensino médio incompleto</option>
-            <option value="medioCompleto">Ensino médio completo</option>
-            <option value="superiorIncompleto">Ensino superior incompleto</option>
-            <option value="superiorCompleto">Ensino superior completo</option>
+            <option >Ensino médio incompleto</option>
+            <option >Ensino médio completo</option>
+            <option >Ensino superior incompleto</option>
+            <option >Ensino superior completo</option>
         </select>
         </div>
         );
     } 
 }
- 

@@ -32,13 +32,12 @@ export default class App extends React.Component {
             
         default:
           return <div>Erro, página não encontrada</div>;
-      
       }
     }
   return (
     <div className="App">
-      {renderizaEtapa()}
-      {this.state.etapa < 4 && <button onClick = { this.irProximaEtapa }>Próxima etapa</button>}
+      { renderizaEtapa() }
+      { this.state.etapa < 4 && <button onClick = { this.irProximaEtapa }>Próxima etapa</button> }
     </div>
   );
 }
