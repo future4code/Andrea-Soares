@@ -29,7 +29,7 @@ class App extends React.Component {
         {
           id:Date.now(),
           texto: "comer banana",
-          completa: true
+          completa: false
         }
       ],
       inputValue: '',
@@ -83,8 +83,9 @@ class App extends React.Component {
   }
 
   onChangeFilter = (event) => {
-
-  }
+    this.setState({ filtro: event.target.value })
+  }  
+  
 
   render() {
     const listaFiltrada = this.state.tarefas.filter(tarefa => {
