@@ -9,11 +9,12 @@ width: 50%;
 align-items:center;
 ` 
 
-export const Press = styled.button`
+export const Button = styled.button`
 background-color: #51C4E0;
 margin: 10px;
 padding: 10px;
 color:white;
+border-radius: 8px
 `
 
 export const ContainerUsers = styled.div`

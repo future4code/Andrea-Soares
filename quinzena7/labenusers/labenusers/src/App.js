@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import {Infos, Press, ContainerUsers} from "./style"
+import {Infos, Button, ContainerUsers} from "./style"
 
 
 class App extends React.Component {
@@ -76,9 +76,9 @@ state = {
     
   return (
     <div className="App">
-      <button onClick ={this.changeVisibility}>
+      <Button onClick ={this.changeVisibility}>
         {this.state.showList ?"Lista de Usuários":"Cadastrar novo Usuário" }
-      </button>
+      </Button>
       <Infos>
         <label>Nome:</label>
         <input 
@@ -90,7 +90,7 @@ state = {
         value={ this.state.email } 
         onChange={ this.onChangeEmail } 
         />
-        <Press onClick = { this.createUser }>SALVAR</Press>
+        <Button onClick = { this.createUser }>SALVAR</Button>
       </Infos>
       <ContainerUsers>
         {/* {correctScreeen} */}
