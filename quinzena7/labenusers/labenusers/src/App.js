@@ -1,31 +1,19 @@
 import React from "react";
 import axios from "axios";
-import styled from "styled-components"
+import {Infos, Press, ContainerUsers} from "./style"
 
-const Infos = styled.div`
-border: 1px solid black;
-display:flex;
-margin: 0 auto;
-flex-direction:column;
-width: 50%;
-align-items:center;
-` 
-const Press = styled.button`
-background-color: #51C4E0;
-margin: 10px;
-padding: 10px;
-color:white;
-
-`
 
 class App extends React.Component {
 state = {
   list: [],
   name: "",
-  email: ""
+  email: "",
+  showList :false
 };
 
-
+  changeVisibility = () => {
+    this.setState({ showList: !this.state.showList})
+  };
 
   componentDidMount = () =>{
     this.listUsers();
@@ -37,8 +25,8 @@ state = {
         {
           headers: { Authorization: "andrea-soares-tang" }
         })
-      .then((resposta) => {
-        this.setState({ list: resposta.data })
+      .then((response) => {
+        this.setState({ list: response.data })
       })
       .catch((error) => {
         alert("Erro")
@@ -49,17 +37,17 @@ state = {
   createUser = () => {
     const body = {
       name: this.state.name,
-      email: this.state.email
+      email: this.state.email, 
     };
 
+    
     axios
       .post("https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users", body,
         {
           headers: { Authorization: "andrea-soares-tang" }
         }
       )
-      .then((resposta) => {
-        console.log(resposta.data);
+      .then((response) => {
         this.listUsers();
         this.setState({ name: "", email: "" })
       })
@@ -75,27 +63,41 @@ state = {
   onChangeEmail = (event) => {
     this.setState({ email: event.target.value })
   }
+
+
   render(){
+    // const correctScreeen = () => {
+    //   if(this.state.showList){
+    //     this.state.list.map((user) => {
+    //       return <p>{user.name}</p>;
+    //     })
+    //   }
+    // }
     
   return (
     <div className="App">
-      <button>Mostrar usuários</button>
+      <button onClick ={this.changeVisibility}>
+        {this.state.showList ?"Lista de Usuários":"Cadastrar novo Usuário" }
+      </button>
       <Infos>
         <label>Nome:</label>
         <input 
-        value={this.state.name} 
-        onChange={this.onChangeName}
+        value={ this.state.name } 
+        onChange={ this.onChangeName }
         />
         <label>Email:</label>
         <input 
-        value={this.state.email} 
-        onChange={this.onChangeEmail} 
+        value={ this.state.email } 
+        onChange={ this.onChangeEmail } 
         />
-        <Press onClick = { this.createUser}>SALVAR</Press>
+        <Press onClick = { this.createUser }>SALVAR</Press>
       </Infos>
-      {this.state.list.map((user) => {
+      <ContainerUsers>
+        {/* {correctScreeen} */}
+        {this.state.list.map((user) => {
           return <p>{user.name}</p>;
         })}
+      </ContainerUsers>  
     </div>
   );
 }
