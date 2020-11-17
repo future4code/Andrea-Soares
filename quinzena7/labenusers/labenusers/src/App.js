@@ -1,14 +1,14 @@
 import React from "react";
 import axios from "axios";
-import {Infos, Button, ContainerUsers} from "./style"
-
+import {Infos, Button, ContainerUsers, AppContainer, InputItem, ButtonX, UserContainer} from "./style"
+import { BASE_URL, axiosConfig } from "./constants/requests";
 
 class App extends React.Component {
 state = {
   list: [],
   name: "",
   email: "",
-  showList :false
+  showList :true
 };
 
   changeVisibility = () => {
@@ -21,10 +21,7 @@ state = {
 
   listUsers = () => {
     axios
-      .get("https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users",
-        {
-          headers: { Authorization: "andrea-soares-tang" }
-        })
+      .get(BASE_URL, axiosConfig)
       .then((response) => {
         this.setState({ list: response.data })
       })
@@ -40,21 +37,29 @@ state = {
       email: this.state.email, 
     };
 
-    
     axios
-      .post("https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users", body,
-        {
-          headers: { Authorization: "andrea-soares-tang" }
-        }
-      )
+      .post(BASE_URL, body, axiosConfig)
       .then((response) => {
+        alert(`O usuário ${this.state.name} foi cadastrado`)
         this.listUsers();
         this.setState({ name: "", email: "" })
       })
       .catch((error) => {
-        alert("Erro aqui")
+        alert(`Algo deu errado, ${error}`)
       });
   };
+
+  deleteUser = (id) =>{
+    axios
+      .delete(`${BASE_URL}/${id}`, axiosConfig)
+      .then(() =>{
+        this.listUsers();
+        alert("Usuário sendo deletado")
+      })
+      .catch((error) =>{
+        alert(error)
+      })
+  }
 
   onChangeName = (event) => {
     this.setState({ name: event.target.value })
@@ -64,41 +69,38 @@ state = {
     this.setState({ email: event.target.value })
   }
 
-
   render(){
-    // const correctScreeen = () => {
-    //   if(this.state.showList){
-    //     this.state.list.map((user) => {
-    //       return <p>{user.name}</p>;
-    //     })
-    //   }
-    // }
-    
+  
   return (
-    <div className="App">
+    <AppContainer>
+      <h2>CADASTRO DE NOVO USUÁRIO</h2>
       <Button onClick ={this.changeVisibility}>
-        {this.state.showList ?"Lista de Usuários":"Cadastrar novo Usuário" }
+        {this.state.showList ?"Mostrar lista de Usuários":"Cadastrar novo Usuário" }
       </Button>
+        {this.state.showList ? 
       <Infos>
         <label>Nome:</label>
-        <input 
+        <InputItem
         value={ this.state.name } 
         onChange={ this.onChangeName }
         />
         <label>Email:</label>
-        <input 
+        <InputItem 
         value={ this.state.email } 
         onChange={ this.onChangeEmail } 
         />
         <Button onClick = { this.createUser }>SALVAR</Button>
-      </Infos>
+      </Infos> :
       <ContainerUsers>
-        {/* {correctScreeen} */}
         {this.state.list.map((user) => {
-          return <p>{user.name}</p>;
+          return <UserContainer>
+            {user.name} 
+            <ButtonX onClick = {() => this.deleteUser(user.id)}>x</ButtonX>
+          </UserContainer>;
         })}
       </ContainerUsers>  
-    </div>
+      }
+    </AppContainer>
   );
 }
 }
