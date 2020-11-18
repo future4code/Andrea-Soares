@@ -7,7 +7,7 @@ import {axiosConfig} from "../../constants/requests";
 export default class FormPlaylist extends React.Component {
     state = {
         mostrarInput: false,
-        playlistInput: ""
+        playlistInput: " "
     }
 
     changeVisibility = () => {
@@ -50,6 +50,7 @@ export default class FormPlaylist extends React.Component {
                         />
                     </span>
                 )}
+                <h2>PLAYLISTS</h2>
             </div>
         );
     }
