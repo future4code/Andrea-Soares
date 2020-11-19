@@ -10,7 +10,7 @@ export default class card extends React.Component {
             <p>{ this.props.description }</p>
             <h3>Fabricantes:</h3>
             <p>{ this.props.manufacturers }</p>
-            <Link  href={ this.props.website }>{`Website da missão${this.props.name}`}</Link >
+            <Link  href={ this.props.website }>{`Website mission ${this.props.name}`}</Link >
         </Container>
     )
 }
