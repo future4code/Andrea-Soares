@@ -36,7 +36,6 @@ export default class ListPlaylist extends React.Component {
     }
     render() {
         const renderList = this.state.listPlaylists.map((item) =>{
-            console.log(item);
             return(
                 <List key={item.id}>
                     {item.name}
