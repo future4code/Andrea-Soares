@@ -32,7 +32,8 @@ export default class FormPlaylist extends React.Component {
 }
     render() {
         return (
-            <div className="App">
+            <div>
+                <h2>PLAYLISTS</h2>
                 <Button
                     text="Adicionar Playlist"
                     onClick={this.changeVisibility}
@@ -50,7 +51,7 @@ export default class FormPlaylist extends React.Component {
                         />
                     </span>
                 )}
-                <h2>PLAYLISTS</h2>
+                
             </div>
         );
     }

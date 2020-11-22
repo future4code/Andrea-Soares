@@ -2,19 +2,21 @@ import React from "react";
 import './App.css';
 import FormPlaylist from "./components/Form/FormPlaylist";
 import ListPlaylist from "./components/ListPlaylists/ListPlaylist";
-import {ContainerApp, BarraLateral, Conteudo} from "./style"
+import FormMusic from "./components/FormMusics/FormMusic"
+import { ContainerApp, BarraLateral, Conteudo } from "./style"
 
 class App extends React.Component {
-  render(){
+  render() {
     return (
       <ContainerApp>
-        <BarraLateral>
-          <FormPlaylist />
+        <div>
+          {/* <FormPlaylist /> */}
           <ListPlaylist />
-       </BarraLateral>
-       <Conteudo>
-         <h1>conteudo</h1> 
-       </Conteudo>
+        </div>
+        {/* <Conteudo>
+          <h1>conteudo</h1>
+          <FormMusic />
+        </Conteudo> */}
       </ContainerApp>
     );
   }

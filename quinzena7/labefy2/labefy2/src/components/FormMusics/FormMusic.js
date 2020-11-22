@@ -2,14 +2,15 @@ import axios from "axios";
 import React from "react";
 import Button from "../Button/Button"
 import Input from "../Input/Input";
-import {axiosConfig} from "../../constants/requests";
+import { axiosConfig } from "../../constants/requests";
 
 export default class FormMusic extends React.Component {
     state = {
         mostrarInputs: false,
-        musicInput: " ", 
+        musicInput: " ",
         artistInput: " ",
-        urlInput: " "
+        urlInput: " ",
+
     }
 
     changeVisibility = () => {
@@ -25,47 +26,70 @@ export default class FormMusic extends React.Component {
         this.setState({ urlInput: e.target.value })
     }
 
-
-    addMusic = () =>{
+    addMusic = (id) => {
         const body = {
-        name: this.state.musicInput,
-        artist: this.state.artistInput,
-        url: this.state.urlInput
+            name: this.state.musicInput,
+            artist: this.state.artistInput,
+            url: this.state.urlInput
         }
+
         axios
-            .post("https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists", body, axiosConfig) //colocar o id da playlist na url
+            .post(`https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${id}/tracks`, body, axiosConfig)
             .then(() => {
                 alert(`Música ${this.state.musicInput} adicionada`)
             })
             .catch((error) => {
                 alert(error)
-            }) 
-}
+            })
+    }
+
+    mudaSelect = (evento) => {
+        const namePlaylist = evento.target.value;
+        this.addMusic(namePlaylist);
+        console.log(evento.target.value);
+      };
+      
     render() {
         return (
             <div className="App">
+               
+                <p>{this.props.listPlaylistsProps.name}</p>
+                <h2>Adicionar Musicas</h2>
                 <Button
                     text="Adicionar Música"
                     onClick={this.changeVisibility}
                 />
 
-                {this.state.mostrarInput && (
+                {this.state.mostrarInputs && (
                     <span>
                         <Input
-                            placeholder="Adicionar Música"
-                            onChange={this.getInputMusic}
+                            placeholder="Nome Música"
+                            onChange={ this.getInputMusic }
                         />
                         <Input
-                            placeholder="Adicionar Música"
-                            onChange={this.getInput}
+                            placeholder="Artista"
+                            onChange={ this.getInputArtist }
                         />
-                        <Button
-                            text="Enviar"
-                            onClick = {this.addMusic}
+                        <Input
+                            placeholder="URL"
+                            onChange={ this.getInputUrl }
                         />
+                         <div>
+                             <h3>Playlists</h3>
+                    <select onChange={this.mudaSelect}> 
+                        <option value={""}></option>
+                        {this.props.listPlaylistsProps.map((play) => {
+                            return (
+                                <option key={play.name} value={play.id}>
+                                    {play.name}
+                                </option>
+                            );
+                        })}
+                    </select>
+                </div>
                     </span>
                 )}
-                <h2>Musicas</h2>
+
             </div>
         );
     }
