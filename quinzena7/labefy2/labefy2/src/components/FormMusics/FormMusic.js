@@ -44,8 +44,8 @@ export default class FormMusic extends React.Component {
     }
 
     mudaSelect = (evento) => {
-        const namePlaylist = evento.target.value;
-        this.addMusic(namePlaylist);
+        const idPlaylist = evento.target.value;        
+        this.addMusic(idPlaylist);
         console.log(evento.target.value);
       };
       

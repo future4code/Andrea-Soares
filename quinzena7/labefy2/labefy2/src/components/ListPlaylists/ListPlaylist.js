@@ -12,22 +12,20 @@ export default class ListPlaylist extends React.Component {
         selectedPlaylistId : ""
     }
 
+
     componentDidMount = () =>{
         this.getPlaylist()
         this.getTracks()
     }
+
 
     getPlaylist = async () => {
         try {
             const apiResponse = await 
             axios
             .get("https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists", axiosConfig)
-           
             this.setState(
                 { listPlaylists: apiResponse.data.result.list }) 
-            //       idPlaylist: apiResponse.data.result.list.map(
-            //           (item) => { return item.id })})
-            // console.log(this.state.idPlaylist);
         }catch (error){
             alert (`Erro aqui ${error}`)
         }
@@ -45,17 +43,15 @@ export default class ListPlaylist extends React.Component {
         }) 
     }
 
-    
     getTracks = (id) => {
         axios
         .get(`https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${id}/tracks`, axiosConfig)
         .then((response) => {
             this.setState({ listTracks: response.data.result.tracks,
                             selectedPlaylistId: id })
-            console.log(response.data)
+            console.log(`${Date.now()} entrou no get tracks`)
         })
         .catch((error) =>{
-            
         })
     }
 
@@ -63,7 +59,7 @@ export default class ListPlaylist extends React.Component {
         axios
         .delete(`https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${id}/tracks/${idTack}`, axiosConfig)
         .then(() => {
-            this.getTracks();
+            this.getTracks(id);
             alert ("Música deletada")
         })
         .catch((error) =>{
@@ -109,7 +105,7 @@ export default class ListPlaylist extends React.Component {
                 </Section>
                 <Section>
                     <FormMusic
-                    listPlaylistsProps={this.state.listPlaylists}
+                    listPlaylistsProps = { this.state.listPlaylists }
                     />
                 </Section>
             </ListsContainer>
