@@ -8,7 +8,6 @@ justify-content: center;
 align-items:center;
 text-align: center;
 box-sizing: border-box;
-
 `
 
 export const Conteudo = styled.div`

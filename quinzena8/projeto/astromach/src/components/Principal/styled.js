@@ -5,17 +5,12 @@ background-color: #a28daa;
 max-height:80vh;
 display:flex;
 flex-direction:column;
-/* width: 99%; */
-border: 3px solid black;
-
 margin: 0 auto;
 border-radius: 5px;
 align-items:center;
-
 `
 
 export const ContainerCard = styled.section`
-border: 10px solid #d7d9df;;
 border-radius: 10px;
 display: flex;
 flex-direction:column;
@@ -31,18 +26,14 @@ width: 400px;
 height:300px;
 border-radius: 10px;
 `
-
 export const ContainerButtons = styled.div`
 width:50%;
 display:flex;
 justify-content: space-between;
-
 `
-
 export const BoxImage = styled.div`
 
 `
-
 export const ButtonsImg = styled.img`
 width: 40px;
 border-radius: 10px;

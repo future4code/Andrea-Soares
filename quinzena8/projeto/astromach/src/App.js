@@ -1,19 +1,18 @@
 import React from "react";
-// import './App.css';
 import Principal from "./components/Principal/Principal";
 import Header from "./components/Header/Header";
 import MatchPage from "./components/MatchPage/MatchPage"
 import Image from "./image/relationship (1).png";
-import {ContainerApp, Conteudo, ButtonMatch, FigButton, ContainerTooltip} from "./styled";
+import {ContainerApp, Conteudo, ButtonMatch, FigButton} from "./styled";
+import OutlinedButtons from "./components/Button-delete/Button-delete"
 
 function App() {
 
   const [listMatch, setListMatch] = React.useState(false)
 
   const showMatchPage = () => {
-    console.log("Hello!")
     setListMatch(!listMatch)
-}
+  }
   return (
     <ContainerApp >
       <Conteudo>
@@ -21,9 +20,10 @@ function App() {
         <ButtonMatch onClick={showMatchPage}>
           <FigButton src={Image} alt="matches" />
         </ButtonMatch>
+
         {listMatch ? <MatchPage /> : <Principal />}
-        
-        <button>deletar a vergonha</button>
+
+        <OutlinedButtons />
       </Conteudo>
     </ContainerApp>
   );

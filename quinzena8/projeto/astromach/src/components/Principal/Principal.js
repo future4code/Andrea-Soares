@@ -8,12 +8,42 @@ import ImageDislike from "../../image/030-dislike.png"
 
 function Principal() {
     const [infos, setInfos] = React.useState([])
+    const [ id, setId] = React.useState("")
+    const [ choice, setChoice] = React.useState(false)
+
+    const makeAChoice = () =>{
+
+        setChoice(!choice)
+        console.log(id);
+        const body = {
+            id: id,
+            choice: choice
+        }
+        const axiosConfig = {
+            headers:{
+                "Content-Type": "application/json"
+            }
+        }
+        
+        axios.post(`${BASE_URL}choose-person`, body, axiosConfig)
+        .then((response) => {
+            console.log(response);
+        })
+        .catch((error) =>{
+            console.log(error);
+        })
+    }
+
+    React.useEffect(() =>{
+        makeAChoice(id)
+    }, [id])
+
     
     React.useEffect(() => {
         axios.get(`${BASE_URL}person`)
         .then((response) => {
             setInfos(response.data.profile)
-            
+            setId(response.data.profile.id)   
         })
         .catch((error) => {
             alert (error)
@@ -32,7 +62,7 @@ function Principal() {
                 </BoxImage>
                 <p>{infos.bio}</p>
                 <ContainerButtons>
-                    <Buttons>
+                    <Buttons onClick= {makeAChoice}>
                         <ButtonsImg src={ImageLike} alt="botão de like" />
                     </Buttons>
                     <Buttons>
@@ -45,5 +75,6 @@ function Principal() {
         </ContainerApp>
     )
 }
+
 
 export default Principal;
