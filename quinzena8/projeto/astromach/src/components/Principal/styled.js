@@ -1,14 +1,5 @@
 import styled from "styled-components";
 
-export const ContainerApp = styled.div`
-background-color: #a28daa;
-max-height:80vh;
-display:flex;
-flex-direction:column;
-margin: 0 auto;
-border-radius: 5px;
-align-items:center;
-`
 
 export const ContainerCard = styled.section`
 border-radius: 10px;
@@ -22,7 +13,7 @@ min-height:70vh;
 
 export const FigCard = styled.img`
 max-width: 100%;
-width: 400px;
+width: 300px;
 height:300px;
 border-radius: 10px;
 `
@@ -38,13 +29,14 @@ export const ButtonsImg = styled.img`
 width: 40px;
 border-radius: 10px;
 :hover {
-    background-color:#ddd;
+    background-color:#bfbfbf;
 }
 `
 export const Buttons = styled.button`
 margin-bottom: 3px;
 border-radius: 30px;
+border: none;
 :hover {
-    background-color:#ddd;
+    background-color:#bfbfbf;
 }
 `

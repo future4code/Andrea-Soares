@@ -1,31 +1,96 @@
 import React from "react";
 import axios from "axios";
 import { BASE_URL } from "../../constants/requests";
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import Avatar from '@material-ui/core/Avatar';
+import styled from "styled-components"
+
+
+const ContainerList = styled(List)`
+  width: 100%;
+  max-width: 300px;
+  background-color:#e1bee7;
+  min-height:63vh;
+  border-radius:5px;
+`
 
 
 function MatchPage() {
+  /* const classes = useStyles(); */
+  /* const [checked, setChecked] = React.useState([1]); */
+
   const [listMatches, setListMatches] = React.useState([ ])
 
-  React.useEffect(() =>{
-    axios.get(`${BASE_URL}matches`)
-    .then((response) => {
-      setListMatches(response.data.matches)
-    })
-    .catch((error) => {
-      alert(error)
-    })
-  }, [])
+    React.useEffect(() =>{
+      axios.get(`${BASE_URL}matches`)
+      .then((response) => {
+        setListMatches(response.data.matches)
+      })
+      .catch((error) => {
+        alert(error)
+      })
+    }, [])
+
+  // const handleToggle = (value) => () => {
+  //   const currentIndex = checked.indexOf(value);
+  //   const newChecked = [...checked];
+
+  //   if (currentIndex === -1) {
+  //     newChecked.push(value);
+  //   } else {
+  //     newChecked.splice(currentIndex, 1);
+  //   }
+
+  //   setChecked(newChecked);
+  // };
 
   return (
-    <div>
-      {listMatches.map(match =>{
-        return(
-          <p>{match.name}</p>
-        )
+    <ContainerList dense >
+   
+      {listMatches.map((match) => {
+        const labelId = `checkbox-list-secondary-label-${match}`;
+        return (
+          <ListItem key={match} button>
+            <ListItemAvatar>
+              <Avatar
+                alt={`Avatar ${match.name}`}
+                src={match.photo}
+              />
+            </ListItemAvatar>
+            <ListItemText id={labelId} primary={match.name} />
+            
+          </ListItem>
+        );
       })}
-      ola
-    </div>
-  )
+    </ContainerList>
+  );
 }
+
+// function MatchPage() {
+//   const [listMatches, setListMatches] = React.useState([ ])
+
+//   React.useEffect(() =>{
+//     axios.get(`${BASE_URL}matches`)
+//     .then((response) => {
+//       setListMatches(response.data.matches)
+//     })
+//     .catch((error) => {
+//       alert(error)
+//     })
+//   }, [])
+
+//   return (
+//     <div>
+//       {listMatches.map(match =>{
+//         return(
+//           <p>{match.name}</p>
+//         )
+//       })}
+//     </div>
+//   )
+// }
 
 export default MatchPage;

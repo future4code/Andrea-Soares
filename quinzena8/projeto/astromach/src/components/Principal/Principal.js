@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import {ContainerApp, ContainerCard, FigCard, ContainerButtons, BoxImage, Buttons, ButtonsImg} from "./styled";
-import { BASE_URL } from "../../constants/requests";
+import { BASE_URL, axiosConfig } from "../../constants/requests";
 import ImageLike from "../../image/029-like.png"
 import ImageDislike from "../../image/030-dislike.png"
 
@@ -19,11 +19,7 @@ function Principal() {
             id: id,
             choice: choice
         }
-        const axiosConfig = {
-            headers:{
-                "Content-Type": "application/json"
-            }
-        }
+       
         
         axios.post(`${BASE_URL}choose-person`, body, axiosConfig)
         .then((response) => {
@@ -34,12 +30,13 @@ function Principal() {
         })
     }
 
-    React.useEffect(() =>{
-        makeAChoice(id)
-    }, [id])
+    // React.useEffect(() =>{
+    //     makeAChoice(id)
+    // }, [id])
 
     
     React.useEffect(() => {
+        makeAChoice(id)
         axios.get(`${BASE_URL}person`)
         .then((response) => {
             setInfos(response.data.profile)
@@ -52,7 +49,7 @@ function Principal() {
 
 
     return (
-        <ContainerApp>
+        // <ContainerApp>
 
             <ContainerCard>
 
@@ -72,7 +69,7 @@ function Principal() {
 
             </ContainerCard>
 
-        </ContainerApp>
+        // </ContainerApp>
     )
 }
 
