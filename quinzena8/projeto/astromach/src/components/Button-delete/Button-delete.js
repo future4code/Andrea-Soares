@@ -11,13 +11,12 @@ padding: 10px 0;
  function OutlinedButtons() {
 
     const del = () =>{
-       axios.put(`${BASE_URL}clear`, axiosConfig)
+       axios.put( `${ BASE_URL }clear`, axiosConfig )
        .then(() =>{ 
-          
-           console.log("passou aqui");
+        
        })
-       .catch(error =>{
-           alert(error);
+       .catch( error =>{
+           alert( error );
        })
    }
 
@@ -28,7 +27,7 @@ padding: 10px 0;
 
   return (
     <ButtonDel >
-      <Button onClick = {del} variant="outlined">apagar a bagaça</Button>
+      <Button onClick = { del } variant="outlined">apagar a bagaça</Button>
     </ButtonDel>
   );
 }
