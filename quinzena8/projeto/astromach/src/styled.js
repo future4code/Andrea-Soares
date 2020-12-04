@@ -21,7 +21,7 @@ align-items:center;
 `
 
 export const Conteudo = styled.div`
-width: 35%;
+width: 30%;
 margin: 0 auto;
 min-height: 90vh;
 background-color: #a274b4;
@@ -30,9 +30,14 @@ export const ButtonMatch = styled.button`
 margin-bottom: 3px;
 border-radius: 30px;
 border: none;
+text-decoration:none;
 :hover {
     background-color:#bfbfbf;
     border:none;
+}
+:focus {
+    outline:none;
+    /* box-shadow: none; */
 }
 `
 export const FigButton = styled.img`

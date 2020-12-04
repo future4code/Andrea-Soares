@@ -13,8 +13,11 @@ const ContainerList = styled(List)`
   width: 100%;
   max-width: 300px;
   background-color:#e1bee7;
-  min-height:63vh;
+  min-height:70vh;
   border-radius:5px;
+`
+const NoMatch = styled.p`
+font-size: 20px
 `
 
 
@@ -34,19 +37,11 @@ function MatchPage() {
       })
     }, [])
 
-  // const handleToggle = (value) => () => {
-  //   const currentIndex = checked.indexOf(value);
-  //   const newChecked = [...checked];
 
-  //   if (currentIndex === -1) {
-  //     newChecked.push(value);
-  //   } else {
-  //     newChecked.splice(currentIndex, 1);
-  //   }
-
-  //   setChecked(newChecked);
-  // };
-
+    if(listMatches.length===0)
+    return <NoMatch><strong>Tá feia a coisa! Sem match, no momento</strong></NoMatch>
+  
+    console.log(listMatches);
   return (
     <ContainerList dense >
    
@@ -67,6 +62,7 @@ function MatchPage() {
       })}
     </ContainerList>
   );
+
 }
 
 // function MatchPage() {

@@ -5,7 +5,7 @@ import { BASE_URL, axiosConfig } from "../../constants/requests";
 import axios from "axios";
 
 const ButtonDel = styled.div`
-padding: 10px 0;;
+padding: 10px 0;
 `
 
  function OutlinedButtons() {
@@ -13,6 +13,7 @@ padding: 10px 0;;
     const del = () =>{
        axios.put(`${BASE_URL}clear`, axiosConfig)
        .then(() =>{ 
+          
            console.log("passou aqui");
        })
        .catch(error =>{

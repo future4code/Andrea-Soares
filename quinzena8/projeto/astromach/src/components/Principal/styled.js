@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 export const ContainerCard = styled.section`
 border-radius: 10px;
 display: flex;
@@ -9,16 +8,16 @@ justify-content:center;
 align-items:center;
 padding: 0 15px;
 min-height:70vh;
+width: 90%;
 `
-
 export const FigCard = styled.img`
-max-width: 100%;
+width: 100%;
 width: 300px;
 height:300px;
 border-radius: 10px;
 `
 export const ContainerButtons = styled.div`
-width:50%;
+width: 300px;
 display:flex;
 justify-content: space-between;
 `
@@ -38,5 +37,9 @@ border-radius: 30px;
 border: none;
 :hover {
     background-color:#bfbfbf;
+}
+:focus {
+    outline:none;
+    /* box-shadow: none; */
 }
 `
