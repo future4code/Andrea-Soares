@@ -1,13 +1,14 @@
 import React from 'react';
-import AppBar from "../Appbar/AppBar";
-import {ContainerHome, ContanierImage,} from "./styled";
+import AppBarApp from "../AppbarApp/AppBarApp";
+import {ContainerHome, ContanierImage, Content} from "./styled";
 
 
 export default function HomePage() {
     return (
         <ContainerHome>
-            <AppBar />
+            <AppBarApp />
             <ContanierImage>
+                <Content>Encontre as melhores viagens espaciais!</Content>
             {/* <ImgLogo src={Logo} alt="" /> */}
             </ContanierImage>
         </ContainerHome>

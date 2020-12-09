@@ -3,13 +3,13 @@ import logo from "../../images/logo.png"
 
 
 export const ContainerHome = styled.div`
-max-height:90vh;
+max-height:100vh;
 
 `
 export const ContanierImage = styled.div`
-border: 10px solid black;
+
 width: 100%;
-min-height: 90vh;
+min-height: 95vh;
 display: flex;
 flex-direction: column;
 align-items: center; 
@@ -19,6 +19,8 @@ background-size: cover;
 resize: both; 
 `
 
-export const ImgLogo = styled.img`
-
+export const Content = styled.p`
+font-size:30px;
+color: #dfdfdf;
+font-weight: bold; 
 `
