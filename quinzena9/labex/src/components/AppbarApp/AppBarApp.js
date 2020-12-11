@@ -18,9 +18,9 @@ export default function AppBarApp() {
     history.push('/trips/list')
   };
 
-  const goToApplicationForm =() => {
-    history.push('/application-form')
-  };
+  // const goToApplicationForm =() => {
+  //   history.push('/application-form')
+  // };
 
   const goToLogin = () => {
     history.push('/login')
@@ -38,7 +38,7 @@ export default function AppBarApp() {
         <Tabs value={ value } onChange={ handleChange } >
           <Tab onClick={ goToHome } label="Início"  />
           <Tab  onClick={ goToListTrip } label="Viagens"  />
-          <Tab onClick={ goToApplicationForm } label="Inscrição"  />
+          {/* <Tab onClick={ goToApplicationForm } label="Inscrição"  /> */}
           <div>
           <Tab onClick={ goToLogin } label="Login"  />
           </div>
