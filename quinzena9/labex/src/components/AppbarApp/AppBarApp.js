@@ -15,7 +15,7 @@ export default function AppBarApp() {
   };
 
   const goToListTrip = () => {
-    history.push('/trips/list')
+    history.push( '/trips/list' )
   };
 
   // const goToApplicationForm =() => {
@@ -23,12 +23,12 @@ export default function AppBarApp() {
   // };
 
   const goToLogin = () => {
-    history.push('/login')
+    history.push( '/login' )
   }
-  const [value, setValue] = React.useState(0);
+  const [ value, setValue ] = React.useState(0);
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
+  const handleChange = ( event, newValue ) => {
+    setValue( newValue );
   };
 
 
@@ -38,7 +38,7 @@ export default function AppBarApp() {
         <Tabs value={ value } onChange={ handleChange } >
           <Tab onClick={ goToHome } label="Início"  />
           <Tab  onClick={ goToListTrip } label="Viagens"  />
-          {/* <Tab onClick={ goToApplicationForm } label="Inscrição"  /> */}
+
           <div>
           <Tab onClick={ goToLogin } label="Login"  />
           </div>
