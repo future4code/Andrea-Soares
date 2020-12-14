@@ -7,11 +7,11 @@ import axios from 'axios'
 
 
 export default function ApplicationFormPage() {
-    const [ name, handleName ] = useInput();
-    const [ age, handleAge ] = useInput();
-    const [ reason, handleReason ] = useInput();
-    const [ profession, handleProfession ] = useInput();
-    const [ country, handleCountry ] = useInput();
+    const [ name, handleName, setName] = useInput();
+    const [ age, handleAge, setAge ] = useInput();
+    const [ reason, handleReason, setReason ] = useInput();
+    const [ profession, handleProfession, setProfession ] = useInput();
+    const [ country, handleCountry, setCountry ] = useInput();
 
     const body ={
         name:name,
@@ -20,24 +20,23 @@ export default function ApplicationFormPage() {
         profession:profession,
         country:country
     };
-console.log(body);// <-------------------------------
 
     const pathParams = useParams();
 
-    const register =() => {
+    const register = () => {
         axios.post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/andrea-tang/trips/${ pathParams.id }/apply`,body)
         .then (( response ) => {
-            console.log( response );
-          
+            setName()
+            setAge()
+            setReason()
+            setProfession()
+            setCountry()
         })
         .catch(( error ) => {
             alert(`Algo deu errado, tente novamente. Erro: ${ error }`);
         })
     }
 
-    React.useEffect(() =>{
-     register();
-    })
 
     return (
         <ContainerPage>

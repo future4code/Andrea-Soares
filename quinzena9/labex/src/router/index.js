@@ -7,6 +7,9 @@ import ApplicationFormPage from '../components/ApplicationFormPage/ApplicationFo
 import LoginPage from '../components/LoginPage/LoginPage';
 import CreateTripPage from '../components/CreateTripPage/CreateTripPage';
 import TripDetailspage from '../components/TripDetailsPage/TripDetailsPage';
+import AdminPage from '../components/AdminPage/AdminPage';
+import ErrorPage from '../components/ErrorPage/ErrorPage';
+
 
 const Router = () => {
     return(
@@ -39,7 +42,13 @@ const Router = () => {
                 <TripDetailspage />
             </Route>
 
-            <Route> <p>erro</p></Route>
+            <Route exact path='/admin'>
+                <AdminPage />
+            </Route>
+
+            <Route> 
+                <ErrorPage />
+            </Route>
 
         </Switch>
         </BrowserRouter>

@@ -6,6 +6,9 @@ export function useInput() {
     const handleInput = (e) => {
         setInput(e.target.value);
     };
+    const clear = ( ) => {
+        setInput('');
+    }
     
-    return [input, handleInput];
+    return [input, handleInput, clear];
 }

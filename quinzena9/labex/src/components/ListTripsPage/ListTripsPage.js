@@ -6,7 +6,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
-import { ContainerListTrip, ContainerCard, Title} from './styled';
+import { ContainerListTrip, ContainerCard, Title } from './styled';
 import styled from 'styled-components';
 
 const ButtonList = styled( Button )`
@@ -33,10 +33,6 @@ export default function ListTripsPage() {
         history.push( `/application-form/${ ident } `)
     }
 
-    // const goToDetails = (id) => {
-    //     history.push(`/trips/details/${ id }`)
-    // }
-
     return (
         <ContainerListTrip>
             <Title>
@@ -54,20 +50,20 @@ export default function ListTripsPage() {
                                     { trip.description }
                                 </Typography>
                                 <Typography color="textSecondary">
-                                    { trip.planet }
+                                    Local: { trip.planet }
+                                </Typography>
+                                <Typography color="textSecondary">
+                                    Duração: { trip.durationInDays } dias
                                 </Typography>
                                 <Typography variant="body2" component="p">
-                                    { trip.date }
+                                    Data prevista: { trip.date }
                                     <br />
                                 </Typography>
                             </CardContent>
                             <CardActions>
-                                <ButtonList onClick={ () => goToApplication( trip.id )} variant="contained" color="primary">
+                                <ButtonList onClick={ () => goToApplication(  trip.id )} variant="contained" color="primary">
                                     Inscrição
                                 </ButtonList>
-                                {/* <ButtonList onClick={ () => goToDetails( trip.id )} variant="contained" color="primary">
-                                    Detalhes
-                                </ButtonList> */}
                             </CardActions>
                         </Card>
                     </ContainerCard>
