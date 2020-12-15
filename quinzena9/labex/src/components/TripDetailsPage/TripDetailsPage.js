@@ -21,13 +21,15 @@ export default function TripDetailsPage() {
 
     const [ listTrips, setListTrips ] = React.useState([])
     const [ infos, setInfos ] = React.useState({})
+    const [ candidate, setCandidate ] = React.useState(false)
 
     useProtectedPage();
 
     const pathParams = useParams();
 
+    
+
     React.useEffect(() => {
-      
         axios.get(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/andrea-tang/trip/${pathParams.id}`, { 
           headers:{
               auth:localStorage.getItem('token')
@@ -36,12 +38,11 @@ export default function TripDetailsPage() {
         .then((response) => {
             setListTrips( response.data.trip.candidates )
             setInfos( response.data.trip )
-            console.log(listTrips);
         })
         .catch((error) => {
             console.log(error);
         })
-    }, [pathParams])
+    }, [])
 
     const aproveCandidate = (id, name) => {
       const body = {
@@ -54,10 +55,9 @@ export default function TripDetailsPage() {
       })
       .then((response) => {
         alert(`Candidato(a) ${name} aprovado`)
-        console.log(response);
       })
       .catch((error) =>{
-        alert('Algo deu erro. tente novamente')
+        alert('Algo deu errado. Tente novamente')
       })
     }
 
@@ -80,17 +80,14 @@ export default function TripDetailsPage() {
                   <Typography variant="body2" component="p">
                     Motivação: {trip.applicationText}
                     <br />
-                   
                   </Typography>
                 </CardContent>
                 <CardActions>
                   <Button onClick = { ()=> aproveCandidate ( trip.id ,trip.name) } variant="contained" color="primary" size="small">Aprovar</Button>
                 </CardActions>
-              </ContainerCard>
-               
+              </ContainerCard>    
             )
         })}
-           
         </ContainerDetailspage>
     )
 }
