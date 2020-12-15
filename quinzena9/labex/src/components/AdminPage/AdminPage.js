@@ -2,17 +2,29 @@ import React from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
-import { ContainerAdminPage, ContainerList, ItemList, ContainerSection } from './styled'
+import { ContainerAdminPage, ContainerList, ItemList, ContainerSection } from './styled';
+import useProtectedPage from '../../hooks/useProtectedpage';
+import styled from 'styled-components';
+
+export const ButtonStyled = styled(Button)`
+margin:0 5em;
+`
+export const ButtonStyledDel = styled(Button)`
+background-color: #732F67;
+`
 
 export default function AdminPage() {
 
     const [ listTrips, setListTrips ] = React.useState([]);
+
+    useProtectedPage();
 
     React.useEffect(() => {
         axios
         .get('https://us-central1-labenu-apis.cloudfunctions.net/labeX/andrea-tang/trips')
             .then(( response ) => {
                 setListTrips( response.data.trips )
+                
             })
             .catch(( error ) => {
                 console.log( error );
@@ -21,7 +33,7 @@ export default function AdminPage() {
 
     const history = useHistory();
 
-    const goToTripDetails = (id) => {
+    const goToTripDetails = ( id ) => {
         history.push(`/trips/details/${ id }`)
     }
 
@@ -29,6 +41,13 @@ export default function AdminPage() {
         history.push('/trips/create')
     }
 
+    const deleteTrip = ( id ) => {
+        axios.delete(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/andrea-tang/trips/${ id }`)
+        .then(( response ) => {
+            alert( `Viagem apagada` )
+            console.log( response );
+        })
+    }
 
     return (
         <ContainerAdminPage>
@@ -40,10 +59,11 @@ export default function AdminPage() {
             <ContainerSection>
                 <h2>Detalhes das inscrições</h2>
                 <ContainerList>
-                    {listTrips.map((trip) => {
+                    {listTrips.map(( trip ) => {
                         return(
                             <ItemList>{trip.name} 
-                            <Button variant="contained" color="primary" onClick={ () => goToTripDetails (trip.id) }>Candidaturas</Button> 
+                            <ButtonStyled variant="contained" color="primary" onClick={ () => goToTripDetails ( trip.id ) }>Candidaturas</ButtonStyled> 
+                            <ButtonStyledDel variant="contained" color="primary" onClick={ () => deleteTrip ( trip.id ) }>Deletar</ButtonStyledDel> 
                             </ItemList>
                         )
                     })}

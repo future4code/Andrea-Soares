@@ -1,48 +1,72 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import useProtectedPage from '../../hooks/useProtectedpage';
+import { ContainerDetailspage } from './styled';
+import styled from 'styled-components';
+
+export const ContainerCard = styled(Card)`
+width: 50%;
+border-radius: 5px;
+margin:3px;
+`
+
 
 export default function TripDetailsPage() {
 
     const [ listTrips, setListTrips ] = React.useState([])
     const [ infos, setInfos ] = React.useState({})
 
-    const history = useHistory();
+    useProtectedPage();
 
     const pathParams = useParams();
 
-    console.log(pathParams.id);//<---------------------------------------
-    const header = { 
-        headers:{
-            auth:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVYcEVsdE5RMURTR1duUzNIV3R3IiwiZW1haWwiOiJiYW5hbmluaGFAZ21haWwuY29tLmJyIiwiaWF0IjoxNjA3NDUzODQyfQ.hfQMUVMgbWM70zxDt1Uu0hQysmbBVoE9c3UNK9vjN6c'}
-    }
-
     React.useEffect(() => {
-        axios.get(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/andrea-tang/trip/${pathParams.id}`, header)
+      
+        axios.get(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/andrea-tang/trip/${pathParams.id}`, { 
+          headers:{
+              auth:localStorage.getItem('token')
+            }
+        })
         .then((response) => {
-            setListTrips(response.data.trip.candidates)
-            setInfos(response.data.trip)
-            console.log(response.data.trip);
+            setListTrips( response.data.trip.candidates )
+            setInfos( response.data.trip )
+            console.log(listTrips);
         })
         .catch((error) => {
             console.log(error);
         })
-    }, [pathParams.id])
+    }, [pathParams])
 
-console.log(listTrips);
+    const aproveCandidate = (id, name) => {
+      const body = {
+        approve : true
+      }
+      axios.put(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/andrea-tang/trips/${pathParams.id}/candidates/${id}/decide`,body, { 
+        headers:{
+            auth: localStorage.getItem('token')
+          }
+      })
+      .then((response) => {
+        alert(`Candidato(a) ${name} aprovado`)
+        console.log(response);
+      })
+      .catch((error) =>{
+        alert('Algo deu erro. tente novamente')
+      })
+    }
+
     return (
-        <div>
+        <ContainerDetailspage>
             <h1>{infos.name}</h1>
-
         {listTrips.map(( trip ) => {
             return(
-                <Card  variant="outlined">
+                <ContainerCard  variant="outlined">
                 <CardContent>
                   <Typography color="textSecondary" gutterBottom>
                     Profissão: {trip.profession}
@@ -60,13 +84,13 @@ console.log(listTrips);
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button variant="contained" color="primary" size="small">Rejeitar</Button>
+                  <Button onClick = { ()=> aproveCandidate ( trip.id ,trip.name) } variant="contained" color="primary" size="small">Aprovar</Button>
                 </CardActions>
-              </Card>
+              </ContainerCard>
                
             )
         })}
            
-        </div>
+        </ContainerDetailspage>
     )
 }

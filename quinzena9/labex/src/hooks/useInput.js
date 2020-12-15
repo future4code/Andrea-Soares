@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 export function useInput() {
     const [ input, setInput ] = React.useState('');

@@ -1,15 +1,11 @@
 import styled from 'styled-components';
 
-
 export const ContainerPage = styled.div`
 display: flex;
 flex-direction: column;
 align-items: center;
 background-color: lightgray;
 min-height: 100vh;
-`
-export const StyledTitle = styled.h1`
-color: #32354e;
 `
 
 export const ContainerForm = styled.section`
@@ -28,4 +24,3 @@ margin: 5px;
 height: 30px;
 font-size: 20px;
 `
-

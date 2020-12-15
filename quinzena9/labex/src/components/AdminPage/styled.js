@@ -26,7 +26,7 @@ border-radius: 5px;
 `
 export const ItemList = styled.li`
 display:flex;
-justify-content: space-between;
+justify-content: flex-end;
 width: 100%;
 margin: 15px 0;
 border-bottom: 1px solid #dfdfdf;
