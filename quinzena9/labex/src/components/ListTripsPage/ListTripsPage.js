@@ -30,12 +30,12 @@ export default function ListTripsPage() {
     const history = useHistory();
 
     const goToApplication = ( ident) => {
-        history.push( `/application-form/${ ident } `)
+        history.push( `/application-form/${ ident }`)
     }
 
     return (
         <ContainerListTrip>
-            <Title>Viagens disponíveis</Title>
+            <Title>Viagens Disponíveis</Title>
             
             { listTrips.map(( trip ) => {
                 return (
