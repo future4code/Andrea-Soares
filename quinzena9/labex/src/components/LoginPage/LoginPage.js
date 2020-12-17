@@ -38,16 +38,17 @@ export default function LoginPage() {
 
     return (
         <ContainerPage>
-            <h1>PÁGINA DE LOGIN</h1>
+            <h1>Página de login para área restrita</h1>
             <ContainerForm>
 
                 <label> <strong> E-mail: </strong> </label>
                 <StyledInput placeholder="E-mail" value={ email } onChange = { handleEmail } type="email" />
                 <label> <strong> Senha: </strong></label>
                 <StyledInput placeholder="Senha" value={ password } onChange = { handlePassword } type="password" />
-                <Button variant="contained" color="primary" onClick={gotToAdmin}>Entrar area Admin</Button>
-
+                
             </ContainerForm>
+            <Button variant="contained" color="primary" onClick={gotToAdmin}>Entrar area Admin</Button>
+            
         </ContainerPage>
     )
 }

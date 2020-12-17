@@ -12,14 +12,14 @@ export default function HomePage() {
   };
 
     return (
-        <ContainerHome>
+        // <ContainerHome>
             <ContanierImage>
                 <Content>Encontre as melhores viagens espaciais!</Content>
                 <ContainerButton>
                     <Button onClick={ goToApplicationForm } size="large" variant="contained" color="primary">Conheça os destinos</Button>
                 </ContainerButton>
             </ContanierImage>
-        </ContainerHome>
+        // </ContainerHome>
     )
 }
 

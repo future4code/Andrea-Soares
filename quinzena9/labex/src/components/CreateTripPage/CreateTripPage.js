@@ -10,6 +10,7 @@ import useProtectedPage from '../../hooks/useProtectedpage'
 
 export const StyledButton = styled(Button)`
 margin: 10px;
+
 `
 
 export default function CreateTripPage() {
@@ -23,7 +24,6 @@ export default function CreateTripPage() {
    
     useProtectedPage();
     
-
     const body = {
         name: name,
         planet: planet,
@@ -64,6 +64,7 @@ export default function CreateTripPage() {
    
     return (
         <ContainerPage>
+           
         <StyledTitle>Nova Viagem</StyledTitle>
      <ContainerForm>
          <label> <strong> Nome: </strong></label>

@@ -16,18 +16,14 @@ border-radius: 5px;
 margin:3px;
 `
 
-
 export default function TripDetailsPage() {
 
     const [ listTrips, setListTrips ] = React.useState([])
     const [ infos, setInfos ] = React.useState({})
-    const [ candidate, setCandidate ] = React.useState(false)
 
     useProtectedPage();
 
     const pathParams = useParams();
-
-    
 
     React.useEffect(() => {
         axios.get(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/andrea-tang/trip/${pathParams.id}`, { 
@@ -42,7 +38,7 @@ export default function TripDetailsPage() {
         .catch((error) => {
             console.log(error);
         })
-    }, [])
+    }, [pathParams])
 
     const aproveCandidate = (id, name) => {
       const body = {
@@ -63,11 +59,11 @@ export default function TripDetailsPage() {
 
     return (
         <ContainerDetailspage>
-            <h1>{infos.name}</h1>
+            <h1>{ infos.name }</h1>
         {listTrips.map(( trip ) => {
             return(
-                <ContainerCard  variant="outlined">
-                <CardContent>
+                <ContainerCard key = {trip.id} variant="outlined">
+                <CardContent >
                   <Typography color="textSecondary" gutterBottom>
                     Profissão: {trip.profession}
                   </Typography>

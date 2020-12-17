@@ -19,7 +19,13 @@ export default function AdminPage() {
 
     useProtectedPage();
 
+
     React.useEffect(() => {
+        makeAList()
+        deleteTrip()
+    }, []);
+
+    const makeAList = () => {
         axios
         .get('https://us-central1-labenu-apis.cloudfunctions.net/labeX/andrea-tang/trips')
             .then(( response ) => {
@@ -29,7 +35,7 @@ export default function AdminPage() {
             .catch(( error ) => {
                 console.log( error );
             })
-    }, []);
+    }
 
     const history = useHistory();
 
@@ -44,8 +50,8 @@ export default function AdminPage() {
     const deleteTrip = ( id ) => {
         axios.delete(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/andrea-tang/trips/${ id }`)
         .then(( response ) => {
-            alert( `Viagem apagada` )
-            console.log( response );
+            // alert( `Viagem apagada` )
+            makeAList()
         })
     }
 

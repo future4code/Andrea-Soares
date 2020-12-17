@@ -19,7 +19,7 @@ padding: 20px;
 `
 
 export const StyledInput = styled.input`
-width: 50vw;
+width: 30vw;
 margin: 5px;
 height: 30px;
 font-size: 20px;

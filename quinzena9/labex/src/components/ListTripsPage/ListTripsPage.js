@@ -35,12 +35,11 @@ export default function ListTripsPage() {
 
     return (
         <ContainerListTrip>
-            <Title>
-                <h1>Viagens disponíveis</h1>
-            </Title>
+            <Title>Viagens disponíveis</Title>
+            
             { listTrips.map(( trip ) => {
                 return (
-                    <ContainerCard>
+                    <ContainerCard key ={trip.id}>
                         <Card variant="outlined">
                             <CardContent>
                                 <Typography color="textSecondary" gutterBottom>
