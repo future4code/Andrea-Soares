@@ -5,12 +5,11 @@ import { useInput } from '../../hooks/useInput';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
-import useProtectedPage from '../../hooks/useProtectedpage' 
-
+import useProtectedPage from '../../hooks/useProtectedpage';
+import {useForm} from '../../hooks/useForm.js' 
 
 export const StyledButton = styled(Button)`
 margin: 10px;
-
 `
 
 export default function CreateTripPage() {
@@ -21,7 +20,7 @@ export default function CreateTripPage() {
     const [ description, handleDescription, setDescription ] = useInput();
     const [ durationInDays, handleDurationInDays, setDurationInDays ] = useInput();
     const [ trip, setTrip ] = React.useState([])
-   
+
     useProtectedPage();
     
     const body = {

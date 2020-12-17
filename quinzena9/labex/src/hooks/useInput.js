@@ -10,5 +10,5 @@ export function useInput() {
         setInput('');
     }
     
-    return [input, handleInput, clear];
+    return [ input, handleInput, clear ];
 }

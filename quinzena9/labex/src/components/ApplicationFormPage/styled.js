@@ -20,6 +20,7 @@ border: 2px solid #A68F8F;
 border-radius: 5px;
 background-color:#c6c5c9;
 padding: 20px;
+/* width: 45%; */
 `
 
 export const StyledInput = styled.input`
