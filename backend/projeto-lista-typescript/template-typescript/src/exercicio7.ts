@@ -9,7 +9,6 @@ const ajustaPreco = (preco :number): string => {
 	return "R$ "+valorAjustado
 }
 
-
 function retornaListaOrdenadaPorQuantidade (array: Produtos[]): Produtos[] {
     function compararNumeros(a:Produtos, b:Produtos) {
         return a.quantidade - b.quantidade;
@@ -24,7 +23,6 @@ function retornaListaValorCorrigido(array:Produtos[]){
             quantidade: produto.quantidade,
             valorUnitario: ajustaPreco(produto.valorUnitario as number)
         }
-      
         return produtosAtualizados
     })
     return novaLista
