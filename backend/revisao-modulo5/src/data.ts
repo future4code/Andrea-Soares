@@ -1,6 +1,6 @@
 import { character, GENDER, movie } from "./types";
 
-export const movies:movie[] = [
+export let movies:movie[] = [
     {
         id:1,
         title: "teste", 
@@ -18,7 +18,7 @@ export const movies:movie[] = [
     }
 ]
 
-export const characters:character[] = [
+export let characters:character[] = [
     {
         id:1,
         name: "Storm",
@@ -33,7 +33,8 @@ export const characters:character[] = [
         id:3,
         name: "Colossus",
         gender:GENDER.MALE
-    },{
+    },
+    {
         id:4,
         name: "Teste",
         gender:GENDER.FEMALE, 

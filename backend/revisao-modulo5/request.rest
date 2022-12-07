@@ -1,0 +1,14 @@
+GET http://localhost:3003/character
+###
+
+PUT http://localhost:3003/character
+content-type: application/json
+
+{
+    "name":"testando criar",
+    "gender": "OTHER",
+    "description":"só testando mesmo"
+}
+###
+
+DELETE http://localhost:3003/character/2
