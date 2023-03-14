@@ -21,7 +21,7 @@ export const createProduct = async (req: Request, res: Response) => {
         const newProduct = new Product(
             Date.now().toString(),
             name,
-             price
+            price
         )
         await connection(TABLE_PRODUCTS).insert(newProduct)
         
